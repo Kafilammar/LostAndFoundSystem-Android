@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- الألوان الأساسية (نفس ألوان المشروع الأصلي) -->
+    <color name="ksu_blue">#1B4F72</color>
+    <color name="ksu_blue_dark">#164361</color>
+    <color name="ksu_blue_light">#6F92A9</color>
+    <color name="splash_blue">#205A7A</color>
+    <color name="splash_blue_dark">#174D6C</color>
+    <color name="loading_yellow">#FFB71B</color>
+    <color name="app_background">#F5F6FA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_dark">#182033</color>
+    <color name="text_primary">#16283A</color>
+    <color name="text_secondary">#7C8797</color>
+    <color name="text_light">#AAB3BE</color>
+    <color name="border">#DDE3E9</color>
+    <color name="selection_red">#FF4B43</color>
+    <color name="selection_red_light">#FFF2F0</color>
+    <color name="found_green">#2DB875</color>
+    <color name="found_green_light">#EAF8F0</color>
+    <color name="dashboard_blue">#1B4F72</color>
+    <color name="dashboard_blue_light">#2D7AA9</color>
+    <color name="soft_blue">#EEF6FF</color>
+    <color name="soft_gray">#F5F6FA</color>
+    <color name="soft_green">#EAF9F1</color>
+    <color name="soft_yellow">#FFF3C7</color>
+    <color name="orange">#F47C20</color>
+    <color name="muted">#9AA5B1</color>
+    <color name="divider">#E9EDF2</color>
+
+    <!-- ألوان مساندة مشتقة من نفس الهوية -->
+    <color name="ksu_blue_soft">#EAF1F6</color>
+    <color name="orange_light">#FFF1E6</color>
+    <color name="danger_text">#D33C33</color>
+    <color name="warning_text">#875E00</color>
+    <color name="hero_subtitle">#E2F0F8</color>
+    <color name="splash_subtitle">#B9CBD7</color>
+    <color name="ic_launcher_background">#1B4F72</color>
+    <color name="white_20">#33FFFFFF</color>
+</resources>

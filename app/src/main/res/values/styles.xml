@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===================== الأشكال ===================== -->
+    <style name="LF.Shape.Small" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="LF.Shape.Medium" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="LF.Shape.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+    <style name="LF.Shape.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- ===================== النصوص ===================== -->
+    <style name="TextAppearance.LF.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="LF.Text" parent="">
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+    <style name="LF.Text.H1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="LF.Text.Section">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="LF.Text.Title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="LF.Text.Body">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+    <style name="LF.Text.Secondary">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+    <style name="LF.Text.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="LF.Text.Label">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:layout_marginTop">14dp</item>
+    </style>
+    <style name="LF.Text.Link">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ksu_blue</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+    <style name="LF.Text.Chip">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- ===================== شريط العنوان ===================== -->
+    <style name="LF.Toolbar" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="LF.Toolbar.Title" parent="LF.Text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginStart">4dp</item>
+    </style>
+    <style name="LF.IconButton" parent="">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="tint">@color/text_dark</item>
+    </style>
+    <style name="LF.IconButton.Circle">
+        <item name="android:background">@drawable/bg_icon_circle</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="tint">@color/ksu_blue</item>
+    </style>
+
+    <!-- ===================== الأزرار ===================== -->
+    <style name="LF.Button.Primary" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="backgroundTint">@color/ksu_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconSize">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LF.Button</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+    <style name="LF.Button.Green" parent="LF.Button.Primary">
+        <item name="backgroundTint">@color/found_green</item>
+    </style>
+    <style name="LF.Button.Orange" parent="LF.Button.Primary">
+        <item name="backgroundTint">@color/orange</item>
+    </style>
+    <style name="LF.Button.White" parent="LF.Button.Primary">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/ksu_blue</item>
+        <item name="iconTint">@color/ksu_blue</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+    <style name="LF.Button.Small" parent="LF.Button.Primary">
+        <item name="android:minHeight">38dp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="iconSize">16dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+    <style name="LF.Button.Small.Green">
+        <item name="backgroundTint">@color/found_green</item>
+    </style>
+    <style name="LF.Button.Small.Orange">
+        <item name="backgroundTint">@color/orange</item>
+    </style>
+    <style name="LF.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minHeight">52dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/ksu_blue</item>
+        <item name="iconTint">@color/ksu_blue</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconSize">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LF.Button</item>
+    </style>
+    <style name="LF.Button.Outlined.Danger">
+        <item name="strokeColor">@color/selection_red</item>
+        <item name="android:textColor">@color/danger_text</item>
+        <item name="iconTint">@color/danger_text</item>
+        <item name="rippleColor">@color/selection_red_light</item>
+    </style>
+    <style name="LF.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/ksu_blue</item>
+        <item name="android:textAppearance">@style/TextAppearance.LF.Button</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="LF.DialogButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/ksu_blue</item>
+        <item name="android:textAppearance">@style/TextAppearance.LF.Button</item>
+    </style>
+    <style name="LF.DialogButton.Muted">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- ===================== البطاقات ===================== -->
+    <style name="LF.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="rippleColor">@color/ksu_blue_soft</item>
+    </style>
+    <style name="LF.Card.Stat">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="cardCornerRadius">14dp</item>
+    </style>
+    <style name="LF.StatBox" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">92dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="LF.StatValue" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">0</item>
+        <item name="android:textColor">@color/ksu_blue</item>
+    </style>
+    <style name="LF.StatLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <!-- ===================== الحقول ===================== -->
+    <style name="LF.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextColor">@color/ksu_blue</item>
+        <item name="startIconTint">@color/ksu_blue_light</item>
+        <item name="endIconTint">@color/ksu_blue_light</item>
+        <item name="android:textColorHint">@color/text_light</item>
+    </style>
+    <style name="LF.TextInput.Dropdown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeColor">@color/input_stroke</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextColor">@color/ksu_blue</item>
+        <item name="startIconTint">@color/ksu_blue_light</item>
+        <item name="endIconTint">@color/ksu_blue_light</item>
+        <item name="android:textColorHint">@color/text_light</item>
+    </style>
+    <style name="LF.EditText" parent="">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <!-- ===================== الشرائح (Chips) ===================== -->
+    <style name="LF.Chip.Filter" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="chipMinHeight">38dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipCornerRadius">19dp</item>
+        <item name="chipStartPadding">6dp</item>
+        <item name="chipEndPadding">6dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.LF.Chip</item>
+        <item name="rippleColor">@color/ksu_blue_soft</item>
+    </style>
+    <style name="TextAppearance.LF.Chip" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ===================== الشريط السفلي ===================== -->
+    <style name="LF.BottomBar" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">68dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_bottom_bar</item>
+        <item name="android:elevation">12dp</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+    </style>
+    <style name="LF.NavItem" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="LF.NavIcon" parent="">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="tint">@color/nav_tint</item>
+    </style>
+    <style name="LF.NavLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:textColor">@color/nav_tint</item>
+        <item name="android:maxLines">1</item>
+    </style>
+</resources>

@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/LF.Toolbar">
+        <ImageView
+            android:id="@+id/btnBackReport"
+            style="@style/LF.IconButton"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_close" />
+        <TextView
+            android:id="@+id/stepTitle"
+            style="@style/LF.Toolbar.Title"
+            android:text="الإبلاغ عن مفقود" />
+        <TextView
+            android:id="@+id/stepIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_chip_blue"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:text="1 / 3"
+            android:textColor="@color/ksu_blue"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- مؤشر الخطوات -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="24dp">
+
+        <TextView
+            android:id="@+id/stepCircle1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/stepLine1"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_step_line" />
+
+        <TextView
+            android:id="@+id/stepCircle2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="2"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/stepLine2"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_step_line" />
+
+        <TextView
+            android:id="@+id/stepCircle3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="3"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="12dp">
+
+        <TextView android:id="@+id/stepLabel1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="تفاصيل الغرض" android:textSize="12sp" />
+        <TextView android:id="@+id/stepLabel2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="المكان والوقت" android:textSize="12sp" />
+        <TextView android:id="@+id/stepLabel3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="المراجعة" android:textSize="12sp" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/reportScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_background"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ============ الخطوة 1 ============ -->
+            <LinearLayout
+                android:id="@+id/formStep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/progressText"
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ما هو الغرض؟" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilItemName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="اسم الغرض *"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="60"
+                    app:placeholderText="مثال: محفظة جلدية سوداء"
+                    app:startIconDrawable="@drawable/ic_box">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etItemName"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:maxLength="60"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCategory"
+                    style="@style/LF.TextInput.Dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:hint="الفئة *"
+                    app:startIconDrawable="@drawable/ic_category">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/etCategory"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="الوصف التفصيلي *"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="400"
+                    app:helperText="اذكر اللون، الماركة، العلامات المميزة…">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:maxLength="400"
+                        android:minLines="4" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/LF.Text.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="صورة الغرض (اختياري)" />
+
+                <FrameLayout
+                    android:id="@+id/btnPickImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_upload"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:id="@+id/imagePlaceholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:contentDescription="@null"
+                            android:padding="14dp"
+                            android:src="@drawable/ic_camera"
+                            app:tint="@color/ksu_blue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="اضغط لإضافة صورة"
+                            android:textColor="@color/ksu_blue"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/LF.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="الصورة تساعد كثيرًا في المطابقة" />
+                    </LinearLayout>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imagePreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="صورة الغرض"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"
+                        app:shapeAppearanceOverlay="@style/LF.Shape.Medium" />
+
+                    <ImageView
+                        android:id="@+id/btnRemoveImage"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:contentDescription="إزالة الصورة"
+                        android:elevation="4dp"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_close"
+                        android:visibility="gone"
+                        app:tint="@color/danger_text" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- ============ الخطوة 2 ============ -->
+            <LinearLayout
+                android:id="@+id/formStep2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/step2Title"
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="أين ومتى؟" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLocation"
+                    style="@style/LF.TextInput.Dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="الموقع *"
+                    app:startIconDrawable="@drawable/ic_location">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/etLocation"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilOtherLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="اكتب اسم الموقع *"
+                    android:visibility="gone"
+                    app:startIconDrawable="@drawable/ic_edit">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOtherLocation"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLength="80"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="التاريخ *"
+                    app:startIconDrawable="@drawable/ic_calendar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDate"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="وصف المكان بالتفصيل (اختياري)"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="200"
+                    app:placeholderText="مثال: بجوار المقاعد أمام البوابة">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDetails"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:maxLength="200"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_notice_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/ksu_blue" />
+
+                    <TextView
+                        style="@style/LF.Text.Secondary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="الموقع والتاريخ يساعدان الإدارة في المراجعة والمطابقة بسرعة."
+                        android:textColor="@color/ksu_blue" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ============ الخطوة 3 ============ -->
+            <LinearLayout
+                android:id="@+id/formStep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="راجع بلاغك قبل الإرسال" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/reviewImage"
+                                android:layout_width="84dp"
+                                android:layout_height="84dp"
+                                android:background="@color/soft_gray"
+                                android:contentDescription="@null"
+                                android:scaleType="centerInside"
+                                app:shapeAppearanceOverlay="@style/LF.Shape.Small" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/reviewType"
+                                    style="@style/LF.Text.Chip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <TextView
+                                    android:id="@+id/reviewItemName"
+                                    style="@style/LF.Text.Title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/reviewCategory"
+                                    style="@style/LF.Text.Caption"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@color/divider" />
+
+                        <TextView
+                            style="@style/LF.Text.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="الوصف" />
+
+                        <TextView
+                            android:id="@+id/reviewDescription"
+                            style="@style/LF.Text.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="14dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="4dp">
+
+                        <include android:id="@+id/reviewLocation" layout="@layout/view_info_row" />
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+                        <include android:id="@+id/reviewDate" layout="@layout/view_info_row" />
+                        <View android:id="@+id/reviewDetailsDivider" android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+                        <include android:id="@+id/reviewDetails" layout="@layout/view_info_row" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_notice_yellow"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/warning_text" />
+
+                    <TextView
+                        style="@style/LF.Text.Secondary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="سيراجع مسؤول النظام البلاغ قبل اعتماده، وستصلك التحديثات في صفحة الإشعارات."
+                        android:textColor="@color/warning_text" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- أزرار التنقل -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_bar"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrevious"
+            style="@style/LF.Button.Outlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:text="إلغاء" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/LF.Button.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:text="التالي" />
+    </LinearLayout>
+</LinearLayout>

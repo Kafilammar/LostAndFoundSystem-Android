@@ -1,0 +1,53 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        ثيم فاتح ثابت (Light) لأن جميع الخلفيات والألوان في التطبيق مصممة للوضع الفاتح.
+        (الثيم السابق DayNight كان يسبب نصوصاً بيضاء على خلفيات بيضاء عند تفعيل الوضع الليلي)
+    -->
+    <style name="Theme.Lostandfoundsystem" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/ksu_blue</item>
+        <item name="colorPrimaryVariant">@color/ksu_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/loading_yellow</item>
+        <item name="colorSecondaryVariant">@color/orange</item>
+        <item name="colorOnSecondary">@color/text_dark</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text_dark</item>
+        <item name="colorError">@color/danger_text</item>
+        <item name="colorControlActivated">@color/ksu_blue</item>
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="colorAccent">@color/ksu_blue</item>
+
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_light</item>
+
+        <!-- الخط العربي -->
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="textAppearanceButton">@style/TextAppearance.LF.Button</item>
+
+        <!-- عناصر مخصصة -->
+        <item name="materialButtonStyle">@style/LF.Button.Primary</item>
+        <item name="textInputStyle">@style/LF.TextInput</item>
+        <item name="materialCardViewStyle">@style/LF.Card</item>
+        <item name="shapeAppearanceSmallComponent">@style/LF.Shape.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/LF.Shape.Medium</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.LF.Dialog</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <!-- ثيم شاشة البداية -->
+    <style name="Theme.Lostandfoundsystem.Splash" parent="Theme.Lostandfoundsystem">
+        <item name="android:windowBackground">@color/splash_blue</item>
+    </style>
+
+    <style name="ThemeOverlay.LF.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/ksu_blue</item>
+        <item name="shapeAppearanceMediumComponent">@style/LF.Shape.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/LF.DialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/LF.DialogButton.Muted</item>
+    </style>
+</resources>

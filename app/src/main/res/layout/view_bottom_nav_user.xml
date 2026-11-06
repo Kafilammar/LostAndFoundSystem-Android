@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/LF.BottomBar"
+    android:layout_height="72dp">
+
+    <LinearLayout android:id="@+id/navHome" style="@style/LF.NavItem">
+        <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_home" />
+        <TextView style="@style/LF.NavLabel" android:text="الرئيسية" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/navSearch" style="@style/LF.NavItem">
+        <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_search" />
+        <TextView style="@style/LF.NavLabel" android:text="البحث" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/navReport" style="@style/LF.NavItem">
+        <ImageView
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_fab_add"
+            android:contentDescription="إبلاغ جديد"
+            android:elevation="4dp"
+            android:padding="11dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/white" />
+        <TextView style="@style/LF.NavLabel" android:layout_marginTop="1dp" android:text="إبلاغ" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/navReports" style="@style/LF.NavItem">
+        <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_reports" />
+        <TextView style="@style/LF.NavLabel" android:text="تقاريري" />
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/navProfile" style="@style/LF.NavItem">
+        <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_person" />
+        <TextView style="@style/LF.NavLabel" android:text="حسابي" />
+    </LinearLayout>
+</LinearLayout>

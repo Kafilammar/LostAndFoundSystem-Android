@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/LF.Toolbar">
+        <ImageView
+            android:id="@+id/btnBackMatch"
+            style="@style/LF.IconButton"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back" />
+        <TextView
+            style="@style/LF.Toolbar.Title"
+            android:text="مراجعة المطابقة" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_background">
+
+        <ProgressBar
+            android:id="@+id/matchProgress"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/ksu_blue" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/matchContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- نسبة التطابق -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:background="@drawable/bg_circle_green_soft"
+                                android:contentDescription="@null"
+                                android:padding="11dp"
+                                android:src="@drawable/ic_compare"
+                                app:tint="@color/found_green" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    style="@style/LF.Text.Caption"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="نسبة التطابق المتوقعة" />
+
+                                <TextView
+                                    android:id="@+id/tvMatchStatus"
+                                    style="@style/LF.Text.Title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="تطابق محتمل" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvMatchScore"
+                                style="@style/LF.Text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textColor="@color/found_green"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/matchScoreBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="14dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/progress_match" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- كيف حُسبت النسبة + ترتيب الاقتراح -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvMatchClaimed"
+                            style="@style/LF.Text.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_chip_orange"
+                            android:text="طالبت به صاحبة البلاغ بنفسها"
+                            android:textColor="@color/orange"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tvMatchRank"
+                            style="@style/LF.Text.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/divider" />
+
+                        <TextView
+                            style="@style/LF.Text.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="كيف حُسبت النسبة؟" />
+
+                        <TextView
+                            android:id="@+id/tvMatchBreakdown"
+                            style="@style/LF.Text.Secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="4dp"
+                            android:textColor="@color/text_primary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            style="@style/LF.Text.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip_red"
+                            android:text="بلاغ مفقود"
+                            android:textColor="@color/selection_red" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivMatchLost"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/app_background"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_icon_lost"
+                            app:shapeAppearanceOverlay="@style/LF.Shape.Small" />
+
+                        <TextView
+                            android:id="@+id/tvMatchLostName"
+                            style="@style/LF.Text.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الفئة" />
+                        <TextView android:id="@+id/tvMatchLostCategory" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الموقع" />
+                        <TextView android:id="@+id/tvMatchLostLocation" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="التاريخ" />
+                        <TextView android:id="@+id/tvMatchLostDate" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الوصف" />
+                        <TextView android:id="@+id/tvMatchLostDescription" style="@style/LF.Text.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+                        <TextView android:id="@+id/tvMatchLostCode" style="@style/LF.Text.Caption" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:textColor="@color/ksu_blue_light" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                    <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            style="@style/LF.Text.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip_green"
+                            android:text="بلاغ موجود"
+                            android:textColor="@color/found_green" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivMatchFound"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/app_background"
+                            android:contentDescription="@null"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_icon_found"
+                            app:shapeAppearanceOverlay="@style/LF.Shape.Small" />
+
+                        <TextView
+                            android:id="@+id/tvMatchFoundName"
+                            style="@style/LF.Text.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الفئة" />
+                        <TextView android:id="@+id/tvMatchFoundCategory" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الموقع" />
+                        <TextView android:id="@+id/tvMatchFoundLocation" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="التاريخ" />
+                        <TextView android:id="@+id/tvMatchFoundDate" style="@style/LF.Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="13sp" />
+
+                        <TextView style="@style/LF.Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="الوصف" />
+                        <TextView android:id="@+id/tvMatchFoundDescription" style="@style/LF.Text.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+                        <TextView android:id="@+id/tvMatchFoundCode" style="@style/LF.Text.Caption" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:textColor="@color/ksu_blue_light" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_notice_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/ksu_blue" />
+
+                    <TextView
+                        style="@style/LF.Text.Secondary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:id="@+id/tvMatchInfo"
+                        android:text="عند الاعتماد يتم إشعار صاحب الغرض والشخص الذي وجده، ويُطلب من الواجد تسليم الغرض إلى مركز المفقودات. تبقى الاقتراحات الأخرى محفوظة كبدائل إذا لم يتطابق الغرض عند التحقق."
+                        android:textColor="@color/ksu_blue" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/matchActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApproveMatch"
+            style="@style/LF.Button.Green"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="اعتماد المطابقة"
+            app:icon="@drawable/ic_check" />
+
+        <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRejectMatch"
+            style="@style/LF.Button.Outlined.Danger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="غير مطابق"
+            app:icon="@drawable/ic_close" />
+    </LinearLayout>
+</LinearLayout>

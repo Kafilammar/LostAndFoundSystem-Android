@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- بطاقة إحصائية واحدة: تستخدم عبر include وتضبط قيمها من الكود -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LF.Card.Stat">
+
+    <LinearLayout style="@style/LF.StatBox">
+
+        <TextView android:id="@+id/statValue" style="@style/LF.StatValue" />
+
+        <TextView android:id="@+id/statLabel" style="@style/LF.StatLabel" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Lostandfoundsystem" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ksu_blue</item>
+        <item name="colorPrimaryVariant">@color/ksu_blue_dark</item>
+        <item name="colorSecondary">@color/loading_yellow</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/text_dark</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:navigationBarColor">@color/app_background</item>
+        <item name="android:statusBarColor">@color/ksu_blue_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+</resources>

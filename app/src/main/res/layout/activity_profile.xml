@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/LF.Toolbar">
+        <ImageView
+            android:id="@+id/btnBackProfile"
+            style="@style/LF.IconButton"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back" />
+        <TextView
+            style="@style/LF.Toolbar.Title"
+            android:text="حسابي" />
+        <ImageView
+            android:id="@+id/btnEditProfile"
+            style="@style/LF.IconButton"
+            android:contentDescription="تعديل الحساب"
+            android:src="@drawable/ic_edit"
+            app:tint="@color/ksu_blue" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_background"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- بطاقة الهوية -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/LF.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="22dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/tvAvatar"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:background="@drawable/bg_circle_blue"
+                        android:gravity="center"
+                        android:text="م"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="المستخدم"
+                        android:textColor="@color/text_dark"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileUniversityId"
+                        style="@style/LF.Text.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvProfileRole"
+                        style="@style/LF.Text.Chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_chip_blue"
+                        android:textColor="@color/ksu_blue" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- الإحصائيات -->
+            <LinearLayout
+                android:id="@+id/profileStatsRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <include android:id="@+id/profileStatReports" layout="@layout/view_stat" />
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+                <include android:id="@+id/profileStatMatched" layout="@layout/view_stat" />
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+                <include android:id="@+id/profileStatDelivered" layout="@layout/view_stat" />
+            </LinearLayout>
+
+            <!-- القائمة -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/LF.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <include android:id="@+id/menuEdit" layout="@layout/view_menu_row" />
+                    <include android:id="@+id/menuReports" layout="@layout/view_menu_row" />
+                    <include android:id="@+id/menuNotifications" layout="@layout/view_menu_row" />
+                    <include android:id="@+id/menuPassword" layout="@layout/view_menu_row" />
+                    <include android:id="@+id/menuHelp" layout="@layout/view_menu_row" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- آخر التقارير -->
+            <LinearLayout
+                android:id="@+id/profileRecentHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="آخر تقاريري" />
+
+                <TextView
+                    android:id="@+id/btnProfileReports"
+                    style="@style/LF.Text.Link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض الكل" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profileRecentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/profileRecentEmpty"
+                style="@style/LF.Text.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="لا توجد تقارير بعد."
+                android:textAlignment="center"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProfileLogout"
+                style="@style/LF.Button.Outlined.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="تسجيل الخروج"
+                app:icon="@drawable/ic_logout" />
+
+            <TextView
+                android:id="@+id/tvProfileVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="الإصدار 1.0.0"
+                android:textColor="@color/text_light"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

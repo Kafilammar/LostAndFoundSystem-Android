@@ -1,0 +1,36 @@
+# Android / Gradle
+.gradle/
+**/build/
+/build/
+/local.properties
+**/local.properties
+*.iml
+.idea/
+*.log
+/captures/
+.externalNativeBuild/
+.cxx/
+.DS_Store
+Thumbs.db
+
+# Firebase and credentials
+**/google-services.json
+**/service-account*.json
+**/*serviceAccount*.json
+**/key.properties
+**/*.jks
+**/*.keystore
+**/*.p12
+**/*.pem
+**/*.key
+**/.env
+**/.env.*
+
+# Generated packages / redundant backups
+*.apk
+*.aab
+app/src.zip
+
+# Local font binaries (not part of this public archive)
+app/src/main/res/font/*.ttf
+app/src/main/res/font/*.otf

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/LF.Toolbar">
+        <ImageView
+            android:id="@+id/btnBackDelivery"
+            style="@style/LF.IconButton"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back" />
+        <TextView
+            style="@style/LF.Toolbar.Title"
+            android:text="تسليم الغرض للمركز" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_background">
+
+        <ProgressBar
+            android:id="@+id/deliveryProgress"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/ksu_blue" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/deliveryContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- رسالة شكر -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hero_green"
+                    android:elevation="3dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="18dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_circle_white_20"
+                        android:contentDescription="@null"
+                        android:padding="15dp"
+                        android:src="@drawable/ic_hand_heart"
+                        app:tint="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LF.Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="شكرًا لأمانتك!"
+                            android:textColor="@color/white"
+                            android:textSize="19sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/LF.Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="3dp"
+                            android:text="تمت مطابقة الغرض مع صاحبه. حدّد موعد تسليمه لمركز المفقودات."
+                            android:textColor="@color/white"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- بطاقة الغرض -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivDeliveryItem"
+                            android:layout_width="76dp"
+                            android:layout_height="76dp"
+                            android:background="@color/app_background"
+                            android:contentDescription="@null"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/LF.Shape.Small" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvDeliveryItemName"
+                                style="@style/LF.Text.Title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+
+                            <TextView
+                                android:id="@+id/tvDeliveryCode"
+                                style="@style/LF.Text.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/ksu_blue_light" />
+
+                            <TextView
+                                android:id="@+id/tvDeliveryStatus"
+                                style="@style/LF.Text.Chip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- بيانات المركز -->
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="مكان التسليم" />
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/LF.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="6dp">
+
+                        <include android:id="@+id/deliveryRowCenter" layout="@layout/view_info_row" />
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+                        <include android:id="@+id/deliveryRowLocation" layout="@layout/view_info_row" />
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+                        <include android:id="@+id/deliveryRowHours" layout="@layout/view_info_row" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- الموعد -->
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="موعد التسليم" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAppointmentDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="التاريخ *"
+                    app:startIconDrawable="@drawable/ic_calendar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAppointmentDate"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAppointmentTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="الوقت *"
+                    app:startIconDrawable="@drawable/ic_clock">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAppointmentTime"
+                        style="@style/LF.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_notice_yellow"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_info"
+                        app:tint="@color/warning_text" />
+
+                    <TextView
+                        style="@style/LF.Text.Secondary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="أحضر الغرض وبطاقتك الجامعية. سيقوم موظف المركز بتأكيد الاستلام، وبعدها يُشعَر صاحب الغرض."
+                        android:textColor="@color/warning_text" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDeliveryConfirm"
+                    style="@style/LF.Button.Green"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="تأكيد موعد التسليم"
+                    app:icon="@drawable/ic_check" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</LinearLayout>

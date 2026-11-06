@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/tvCenterAvatar"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_circle_blue"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="م"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LF.Text.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="مركز المفقودات" />
+
+            <TextView
+                android:id="@+id/tvCenterName"
+                style="@style/LF.Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="موظف المركز"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnCenterLogout"
+            style="@style/LF.IconButton.Circle"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:contentDescription="تسجيل الخروج"
+            android:padding="11dp"
+            android:src="@drawable/ic_logout"
+            app:tint="@color/danger_text" />
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/centerRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_background"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hero_center"
+                    android:elevation="3dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LF.Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="عمليات المركز"
+                            android:textColor="@color/white"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/LF.Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:lineSpacingExtra="3dp"
+                            android:text="سجّل استلام الأغراض في المركز وسلّمها لأصحابها"
+                            android:textColor="@color/hero_subtitle"
+                            android:textSize="13sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCenterViewAll"
+                            style="@style/LF.Button.White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:text="كل العمليات"
+                            app:icon="@drawable/ic_box" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_circle_white_20"
+                        android:contentDescription="@null"
+                        android:padding="18dp"
+                        android:src="@drawable/ic_center"
+                        app:tint="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="الإحصائيات" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <include android:id="@+id/centerStatWaiting" layout="@layout/view_stat" />
+
+                    <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                    <include android:id="@+id/centerStatCenter" layout="@layout/view_stat" />
+
+                    <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                    <include android:id="@+id/centerStatReturned" layout="@layout/view_stat" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/LF.Text.Section"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="بحاجة إلى إجراء" />
+
+                    <TextView
+                        android:id="@+id/centerSeeAll"
+                        style="@style/LF.Text.Link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="عرض الكل" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/centerProgress"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:indeterminateTint="@color/ksu_blue" />
+
+                <LinearLayout
+                    android:id="@+id/centerOperationsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/centerOperationsEmpty"
+                    style="@style/LF.Text.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_notice_green"
+                    android:gravity="center_vertical"
+                    android:padding="14dp"
+                    android:text="لا توجد عمليات بانتظارك حاليًا ✨"
+                    android:textColor="@color/found_green"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        style="@style/LF.BottomBar"
+        android:layout_height="68dp">
+
+        <LinearLayout android:id="@+id/navCenterHome" style="@style/LF.NavItem">
+            <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_home" />
+            <TextView style="@style/LF.NavLabel" android:text="الرئيسية" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navCenterSearch" style="@style/LF.NavItem">
+            <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_search" />
+            <TextView style="@style/LF.NavLabel" android:text="البحث" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navCenterReports" style="@style/LF.NavItem">
+            <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_box" />
+            <TextView style="@style/LF.NavLabel" android:text="العمليات" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navCenterNotifications" style="@style/LF.NavItem">
+            <ImageView style="@style/LF.NavIcon" android:contentDescription="@null" android:src="@drawable/ic_bell" />
+            <TextView style="@style/LF.NavLabel" android:text="الإشعارات" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

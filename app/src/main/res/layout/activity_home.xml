@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <!-- الترويسة -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/profileImage"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_circle_blue"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="م"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGreeting"
+                style="@style/LF.Text.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="مرحبًا بك 👋" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/LF.Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="المستخدم"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/btnNotifications"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_icon_circle"
+            android:clickable="true"
+            android:contentDescription="الإشعارات"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_bell"
+                app:tint="@color/ksu_blue" />
+
+            <TextView
+                android:id="@+id/bellBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_unread_dot"
+                android:gravity="center"
+                android:minWidth="18dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/app_background"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- مفتاح التبديل بين مفقود / موجود -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_segment"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/modeLost"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="فقدت شيئًا"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/modeFound"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="وجدت شيئًا"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- البطاقة الرئيسية -->
+            <LinearLayout
+                android:id="@+id/heroCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_hero_blue"
+                android:elevation="3dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvHeroTitle"
+                        style="@style/LF.Text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="هل فقدت شيئًا؟"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvHeroSubtitle"
+                        style="@style/LF.Text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="أبلغ الآن وابدأ رحلة استرداد ممتلكاتك داخل الحرم الجامعي"
+                        android:textColor="@color/hero_subtitle"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/actionButton"
+                        style="@style/LF.Button.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="إبلاغ عن مفقود"
+                        app:icon="@drawable/ic_add" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/heroIcon"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/bg_circle_white_20"
+                    android:contentDescription="@null"
+                    android:padding="18dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <!-- الإحصائيات -->
+            <TextView
+                style="@style/LF.Text.Section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="إحصائياتي" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <include android:id="@+id/stat1" layout="@layout/view_stat" />
+
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <include android:id="@+id/stat2" layout="@layout/view_stat" />
+
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+
+                <include android:id="@+id/stat3" layout="@layout/view_stat" />
+            </LinearLayout>
+
+            <!-- آخر التقارير -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/LF.Text.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="تقاريري الأخيرة" />
+
+                <TextView
+                    android:id="@+id/latestSeeAll"
+                    style="@style/LF.Text.Link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض الكل" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/latestContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/latestEmpty"
+                style="@style/LF.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_icon_circle"
+                        android:contentDescription="@null"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_reports"
+                        app:tint="@color/ksu_blue_light" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LF.Text.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="لا توجد تقارير بعد" />
+
+                        <TextView
+                            style="@style/LF.Text.Secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="ابدأ بإنشاء أول بلاغ لك من هنا" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_chevron"
+                        app:tint="@color/text_light" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- بطاقة المساعدة -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/helpCard"
+                style="@style/LF.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/ksu_blue_soft"
+                app:strokeColor="@color/ksu_blue_soft">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_circle_white"
+                        android:contentDescription="@null"
+                        android:padding="11dp"
+                        android:src="@drawable/ic_help"
+                        app:tint="@color/ksu_blue" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LF.Text.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="هل تحتاج مساعدة؟"
+                            android:textColor="@color/ksu_blue" />
+
+                        <TextView
+                            style="@style/LF.Text.Secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="تعرّف على خطوات الإبلاغ والتسليم ومواعيد مركز المفقودات." />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_chevron"
+                        app:tint="@color/ksu_blue" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/view_bottom_nav_user" />
+</LinearLayout>
